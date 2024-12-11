@@ -1,5 +1,8 @@
+using Audit.EntityFramework;
+
 namespace ExampleApi.Models
 {
+    [AuditIgnore]
     public class AuditLog
     {
         public long AuditId { get; set; }

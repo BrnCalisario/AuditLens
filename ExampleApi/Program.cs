@@ -18,8 +18,8 @@ var builder = WebApplication.CreateBuilder(args);
             .AuditTypeMapper(t => typeof(AuditLog))
             .AuditEntityAction<AuditLog>((ev, entry, auditLog) =>
             {
-                auditLog.TableName = entry.Table;
                 auditLog.AuditData = entry.ToJson();
+                auditLog.TableName = entry.Table;
                 auditLog.AuditDate = DateTime.Now;
                 auditLog.AuditAction = entry.Action;
                 auditLog.AuditUser = "System";

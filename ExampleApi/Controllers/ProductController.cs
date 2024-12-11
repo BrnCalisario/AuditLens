@@ -30,5 +30,15 @@ namespace ExampleApi.Controllers
 
             return Ok(product);
         }
+
+        [HttpPatch]
+        public async Task<IActionResult> Patch(Product product)
+        {
+            context.Set<Product>().Update(product);
+            
+            await context.SaveChangesAsync();
+
+            return Ok(product);
+        }
     }
 }   
